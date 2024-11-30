@@ -1,4 +1,4 @@
-// File: /home/tanishq/Desktop/hiiiiii/G42_copy/app/page.js
+// File: /home/tanishq/Documents/hackk/G42/app/page.js
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
