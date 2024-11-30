@@ -1,0 +1,17 @@
+{
+  "node": {
+    "7f0cff7105825bcdd6884c017f69643e14c36499f6": {
+      "workers": {
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Ftanishq%2FDesktop%2Fhiiiiii%2FG42_copy%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%5B%227f0cff7105825bcdd6884c017f69643e14c36499f6%22%2C%22invalidateCacheAction%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/_not-found/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "g614hOuVDvEKYbqoN32LaM99z8YkjaNkczuK/zsUFtI="
+}
