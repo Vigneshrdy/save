@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Paper, Box, LinearProgress, Grid } from '@mui/material';
+import { Container, Typography, Paper, Box, LinearProgress, Grid, CircularProgress } from '@mui/material';
 import { Bar } from 'react-chartjs-2';
 import { useUser } from '@clerk/nextjs';
 import {
@@ -16,17 +16,29 @@ import {
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export default function Dashboard() {
+const Dashboard = () => {
   const { user } = useUser();
   const [attendance, setAttendance] = useState(60); // Default attendance
-  const [subjectScores, setSubjectScores] = useState([
-    { subject: 'BEE', student: 80.5, average: 75.2, topper: 90.1 },
-    { subject: 'EDC', student: 70.7, average: 68.3, topper: 85.6 },
-    { subject: 'M & C', student: 85.9, average: 80.4, topper: 95.8 },
-    { subject: 'CAEG', student: 65.4, average: 60.8, topper: 88.3 },
-    { subject: 'PPS', student: 90.2, average: 85.7, topper: 100 },
-    { subject: 'EC', student: 88.6, average: 82.5, topper: 96.2 },
-  ]);
+  const [subjectScores, setSubjectScores] = useState([]);
+  const [loading, setLoading] = useState(true); // For loading state
+
+  useEffect(() => {
+    if (user) {
+      // Simulate fetching data (e.g., attendance and subject scores)
+      setTimeout(() => {
+        // Example data
+        setSubjectScores([
+          { subject: 'BEE', student: 80.5, average: 75.2, topper: 90.1 },
+          { subject: 'EDC', student: 70.7, average: 68.3, topper: 85.6 },
+          { subject: 'M & C', student: 85.9, average: 80.4, topper: 95.8 },
+          { subject: 'CAEG', student: 65.4, average: 60.8, topper: 88.3 },
+          { subject: 'PPS', student: 90.2, average: 85.7, topper: 100 },
+          { subject: 'EC', student: 88.6, average: 82.5, topper: 96.2 },
+        ]);
+        setLoading(false);
+      }, 1500); // Simulate network delay
+    }
+  }, [user]);
 
   // Utility function to calculate overall performance
   const calculateOverall = (key) => {
@@ -40,26 +52,16 @@ export default function Dashboard() {
     topper: calculateOverall('topper'),
   };
 
-  useEffect(() => {
-    if (user) {
-      // Fetch attendance and subject scores if required
-    }
-  }, [user]);
-
   // Function to determine progress bar color based on attendance
   const getAttendanceColor = () => {
-    if (attendance < 25) {
-      return 'darkred';
-    } else if (attendance < 75) {
-      return 'orange';
-    } else {
-      return 'green';
-    }
+    if (attendance < 25) return 'darkred';
+    if (attendance < 75) return 'orange';
+    return 'green';
   };
 
   // Data for the Overall Performance Chart
   const overallChartData = {
-    labels: ['Overall Performance'], // Single bar for overall
+    labels: ['Overall Performance'],
     datasets: [
       {
         label: 'Student Score',
@@ -98,13 +100,13 @@ export default function Dashboard() {
   // Chart options with consistent y-axis scale
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: false, // Allow custom height
+    maintainAspectRatio: false,
     scales: {
       y: {
         min: 0,
-        max: 100, // Fix y-axis range to 0-100
+        max: 100,
         ticks: {
-          stepSize: 20, // Optional: Adjust step intervals
+          stepSize: 20,
         },
       },
     },
@@ -115,7 +117,24 @@ export default function Dashboard() {
     },
   };
 
-  const chartStyle = { height: '400px' }; // Standardized height
+  const chartStyle = { height: '400px' };
+
+  // Loading indicator until data is fetched
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          backgroundColor: '#FFF9F0',
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <Box
@@ -126,13 +145,7 @@ export default function Dashboard() {
         color: '#A367B1',
       }}
     >
-      <Container
-        maxWidth="lg"
-        sx={{
-          flexGrow: 1,
-          padding: 2,
-        }}
-      >
+      <Container maxWidth="lg" sx={{ flexGrow: 1, padding: 2 }}>
         <Typography variant="h4" textAlign="center" gutterBottom>
           Welcome to Maargdarshak
         </Typography>
@@ -190,4 +203,6 @@ export default function Dashboard() {
       </Container>
     </Box>
   );
-}
+};
+
+export default Dashboard;
