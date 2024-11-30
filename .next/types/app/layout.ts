@@ -1,4 +1,4 @@
-// File: /home/tanishq/Documents/hackk/G42/app/layout.js
+// File: D:\hacathon2\G42\app\layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
