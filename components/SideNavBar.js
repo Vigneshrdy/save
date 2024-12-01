@@ -44,13 +44,6 @@ const NavBar = () => {
 
   return (
     <div id="nav-bar">
-      <input
-        id="nav-toggle"
-        type="checkbox"
-        checked={navToggle}
-        onChange={() => setNavToggle(!navToggle)}
-      />
-      
       <div id="nav-header">
         <div id="nav-title">Maargdarshak</div>
         <hr />
@@ -76,7 +69,7 @@ const NavBar = () => {
             top: highlightStyle.top,
             height: highlightStyle.height,
             opacity: highlightStyle.opacity,
-            background: '#FFF9F0', // Soft blue highlight
+            background: '#000', // Black highlight
             transition: 'all 0.2s ease'
           }}
         />
