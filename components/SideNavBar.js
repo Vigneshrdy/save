@@ -18,6 +18,7 @@ const NavBar = () => {
     { icon: 'images', label: 'Chatbot', onClick: () => router.push('/chatbot') },
     { icon: 'thumbtack', label: 'Forums', onClick: () => router.push('/forums') },
     { icon: 'heart', label: 'Subjects', onClick: () => router.push('/subjectss') },
+    { icon: 'cogs', label: 'Compilers', onClick: () => router.push('/complier') },
     { icon: 'chart-line', label: 'Recommendations', onClick: () => router.push('/recommendations') },
     { icon: 'sign-out-alt', label: 'Logout', onClick: async () => { await signOut(); router.push('/'); } }
   ];
