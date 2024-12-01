@@ -14,6 +14,7 @@ const NavBar = () => {
   const { signOut } = useAuth();
 
   const navButtons = [
+<<<<<<< HEAD
     { icon: 'palette', label: 'Dashboard', iconImage: '/images/dashboard.png', onClick: () => router.push('/dashboard') },
     { icon: 'images', label: 'Chatbot', iconImage: '/images/chatbot.png', onClick: () => router.push('/chatbot') },
     { icon: 'thumbtack', label: 'Forums', iconImage: '/images/forums.png', onClick: () => router.push('/forums') },
@@ -21,6 +22,15 @@ const NavBar = () => {
     { icon: 'cogs', label: 'Compilers', iconImage: '/images/compilers.png', onClick: () => router.push('/compiler') },
     { icon: 'chart-line', label: 'Recommendations', iconImage: '/images/recommendations.png', onClick: () => router.push('/recommendations') },
     { icon: 'sign-out-alt', label: 'Logout', iconImage: '/images/logout.png', onClick: async () => { await signOut(); router.push('/logout'); } },
+=======
+    { icon: 'palette', label: 'Dashboard', onClick: () => router.push('/dashboard') },
+    { icon: 'images', label: 'Chatbot', onClick: () => router.push('/chatbot') },
+    // { icon: 'thumbtack', label: 'Forums', onClick: () => router.push('/forums') },
+    { icon: 'heart', label: 'Subjects', onClick: () => router.push('/subjectss') },
+    { icon: 'cogs', label: 'Compilers', onClick: () => router.push('/complier') },
+    { icon: 'chart-line', label: 'Recommendations', onClick: () => router.push('/recommendations') },
+    { icon: 'sign-out-alt', label: 'Logout', onClick: async () => { await signOut(); router.push('/'); } }
+>>>>>>> a91177078dc235d2fe8a16d4b86785ef0e59c9e3
   ];
 
   const handleMouseEnter = (event, index) => {
