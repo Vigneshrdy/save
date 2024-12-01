@@ -17,10 +17,11 @@ const NavBar = () => {
   const navButtons = [
     { icon: 'palette', label: 'Dashboard', onClick: () => router.push('/dashboard') },
     { icon: 'heart', label: 'Subjects', onClick: () => router.push('/subjectss') },
-    { icon: 'thumbtack', label: 'Forums', onClick: () => router.push('/forums') },
+    // { icon: 'thumbtack', label: 'Forums', onClick: () => router.push('/forums') },
     { icon: 'chart-line', label: 'Recommendations', onClick: () => router.push('/recommendations') },
+    { icon: 'cogs', label: 'Compilers', onClick: () => router.push('/complier') },
     { icon: 'images', label: 'Chatbot', onClick: () => router.push('/chatbot') },
-    { icon: 'cogs', label: 'Compilers', onClick: () => router.push('/complier') }, // Added Compilers Button
+ // Added Compilers Button
     { icon: 'sign-out-alt', label: 'Logout', onClick: async () => { await signOut(); router.push('/'); } }
   ];
 
