@@ -111,7 +111,7 @@ export default function Recommendations() {
       />
       <Button
         variant="contained"
-        color="primary"
+        color="#000000"
         onClick={handleRecommend}
         disabled={loading}
       >

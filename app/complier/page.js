@@ -80,7 +80,7 @@ const Compilers = () => {
         <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 3 }}>
           <Button
             variant="contained"
-            color="primary"
+            color="#000000"
             onClick={handleCompile}
             disabled={isLoading}
             sx={{ width: '200px' }}
