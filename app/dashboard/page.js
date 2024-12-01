@@ -1,6 +1,15 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Paper, Box, LinearProgress, Grid, CircularProgress } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Paper,
+  Box,
+  LinearProgress,
+  Grid,
+  CircularProgress,
+  Avatar,
+} from '@mui/material';
 import { Bar } from 'react-chartjs-2';
 import { useUser } from '@clerk/nextjs';
 import {
@@ -24,9 +33,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (user) {
-      // Simulate fetching data (e.g., attendance and subject scores)
       setTimeout(() => {
-        // Example data
         setSubjectScores([
           { subject: 'BEE', student: 80.5, average: 75.2, topper: 90.1 },
           { subject: 'EDC', student: 70.7, average: 68.3, topper: 85.6 },
@@ -40,7 +47,6 @@ const Dashboard = () => {
     }
   }, [user]);
 
-  // Utility function to calculate overall performance
   const calculateOverall = (key) => {
     const total = subjectScores.reduce((sum, subject) => sum + subject[key], 0);
     return parseFloat((total / subjectScores.length).toFixed(1)); // Keep one decimal place
@@ -52,14 +58,12 @@ const Dashboard = () => {
     topper: calculateOverall('topper'),
   };
 
-  // Function to determine progress bar color based on attendance
   const getAttendanceColor = () => {
     if (attendance < 25) return 'darkred';
     if (attendance < 75) return 'orange';
     return 'green';
   };
 
-  // Data for the Overall Performance Chart
   const overallChartData = {
     labels: ['Overall Performance'],
     datasets: [
@@ -81,7 +85,6 @@ const Dashboard = () => {
     ],
   };
 
-  // Data for the Subject-wise Performance Chart
   const subjectChartData = (subject) => ({
     labels: ['Student', 'Class Average', 'Topper'],
     datasets: [
@@ -97,7 +100,6 @@ const Dashboard = () => {
     ],
   });
 
-  // Chart options with consistent y-axis scale
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -119,7 +121,6 @@ const Dashboard = () => {
 
   const chartStyle = { height: '400px' };
 
-  // Loading indicator until data is fetched
   if (loading) {
     return (
       <Box
@@ -140,17 +141,45 @@ const Dashboard = () => {
     <Box
       sx={{
         display: 'flex',
+        flexDirection: 'column',
         height: '100vh',
         backgroundColor: '#FFF9F0',
         color: '#A367B1',
       }}
     >
-      <Container maxWidth="lg" sx={{ flexGrow: 1, padding: 2 }}>
-        <Typography variant="h4" textAlign="center" gutterBottom>
+      {/* Profile Section in the Top Right */}
+      {user && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 20,
+            right: 70, // Moved 50px to the left
+            display: 'flex',
+            alignItems: 'center',
+            gap: 2,
+          }}
+        >
+          <Avatar src={user.profileImageUrl} alt={user.fullName} />
+          <Typography variant="body1">{user.fullName}</Typography>
+        </Box>
+      )}
+
+      {/* Centered Welcome Section */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 2,
+          flexGrow: 1,
+        }}
+      >
+        <Typography variant="h4" textAlign="center">
           Welcome to Maargdarshak
         </Typography>
+      </Box>
 
-        {/* Attendance Section */}
+      <Container maxWidth="lg" sx={{ flexGrow: 1, padding: 2 }}>
         <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
           Attendance
         </Typography>
@@ -172,7 +201,6 @@ const Dashboard = () => {
           />
         </Paper>
 
-        {/* Overall Performance Chart */}
         <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
           Overall Performance
         </Typography>
@@ -182,7 +210,6 @@ const Dashboard = () => {
           </Box>
         </Paper>
 
-        {/* Subject-wise Performance Section */}
         <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
           Subject-wise Performance
         </Typography>
