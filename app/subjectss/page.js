@@ -43,7 +43,8 @@ export default function SubjectsPage() {
             },
           }}
         >
-          Subjects
+          
+          
         </Typography>
 
         <Grid container spacing={4}>
