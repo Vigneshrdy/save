@@ -175,7 +175,7 @@ const Dashboard = () => {
         }}
       >
         <Typography variant="h4" textAlign="center">
-          Welcome to Maargdarshak
+          Welcome to lifebalance
         </Typography>
       </Box>
 

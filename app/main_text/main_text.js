@@ -14,7 +14,7 @@ function FadeTextDemo() {
             hidden: { opacity: 0 }, // Ensures opacity starts at 0
             show: { opacity: 1, transition: { delay: 0.8 } }, // Transition to opacity 1
           }}
-          text="Welcome to Maargadarshak..."
+          text="Welcome to lifebalance"
         />
         {/* <FadeText
           className="text-4xl font-bold text-black dark:text-white"
@@ -42,7 +42,7 @@ function FadeTextDemo() {
             hidden: { opacity: 0 }, // Ensures opacity starts at 0
             show: { opacity: 1, transition: { delay: 1.2 } }, // Transition to opacity 1
           }}
-          text="Read. Reflect. Review."
+          text="One Click to Better Health."
         />
       </div>
 

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import TypingAnimationDemo from './reviews/reviews.js';
 import FadeTextDemo from './main_text/main_text.js';
 import { Typography } from '@mui/material';
 import FeaturesSection from './feature/feature.js';
@@ -13,7 +12,7 @@ export default function App() {
     router.push("/signup");
   };
   return (
-    <div style={{ backgroundColor: "#FBEFE1", color: "white", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "white", color: "white", minHeight: "100vh" }}>
       <div>
         {/* Landing Page with HTML as Background */}
         <div
@@ -61,7 +60,6 @@ export default function App() {
     margin: "0 auto", // Centers the section
   }}
 >
-  <FeaturesSection />
 </div>
 
 
@@ -80,7 +78,6 @@ export default function App() {
     marginTop: "50px " // Center the div within its parent
   }}
 >
-  <TypingAnimationDemo />
 </div>
 
 
@@ -95,7 +92,7 @@ export default function App() {
         }}
       >
         <Typography variant="body2">
-          &copy; 2024 Maargadarshak. All rights reserved.
+          &copy; 2024 lifebalance. All rights reserved.
         </Typography>
       </footer>
     </div>

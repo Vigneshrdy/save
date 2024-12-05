@@ -12,16 +12,12 @@ const NavBar = () => {
   });
   const router = useRouter();
   const { signOut } = useAuth();
-
-  // Updated navButtons array with the added "Compilers" button
   const navButtons = [
     { icon: 'palette', label: 'Dashboard', onClick: () => router.push('/dashboard') },
     { icon: 'heart', label: 'Resources', onClick: () => router.push('/subjectss') },
-    // { icon: 'thumbtack', label: 'Forums', onClick: () => router.push('/forums') },
     { icon: 'chart-line', label: 'Recommendations', onClick: () => router.push('/recommendations') },
     { icon: 'cogs', label: 'Compilers', onClick: () => router.push('/complier') },
     { icon: 'images', label: 'Chatbot', onClick: () => router.push('/chatbot') },
- // Added Compilers Button
     { icon: 'sign-out-alt', label: 'Logout', onClick: async () => { await signOut(); router.push('/'); } }
   ];
 
@@ -57,7 +53,7 @@ const NavBar = () => {
       />
       
       <div id="nav-header">
-        <div id="nav-title">Maargdarshak</div>
+        <div id="nav-title">lifebalance</div>
         <hr />
       </div>
       
